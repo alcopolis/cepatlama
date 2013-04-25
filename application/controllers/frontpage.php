@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Frontpage extends CI_Controller {
+class Frontpage extends Frontend_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,6 +19,7 @@ class Frontpage extends CI_Controller {
 	 */
 	public function index()
 	{
+		//var_dump($this->data);
 		$this->load->view('welcome_message');
 	}
 }
