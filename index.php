@@ -21,7 +21,7 @@ date_default_timezone_set('Asia/Jakarta');
  *
  */	
 	switch(dirname(__FILE__)){
-		case 'C:\xampp\htdocs\cepatlama-rev' :
+		case 'C:\xampp\htdocs\cepatlama' :
 			define('ENVIRONMENT', 'development');
 			break;
 			
