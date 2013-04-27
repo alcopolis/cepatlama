@@ -12,7 +12,7 @@ class MY_Model extends CI_Model{
 		parent::__construct();	
 	}
 	
-	//
+
 	public function get($id = NULL, $single = FALSE){
 		if($id != NULL){
 			$filter = $this->_primary_filter;
@@ -29,10 +29,10 @@ class MY_Model extends CI_Model{
 			$this->db->order_by($this->_order_by);
 		}
 		
-		return $this->db->get($this->_table_name)->$method;
+		return $this->db->get($this->_table_name)->$method();
 	}
 	
-	//
+
 	public function getby($where, $single = FALSE){
 		$this->db->where($where);
 		return $this->get(NULL, $single);
@@ -40,5 +40,4 @@ class MY_Model extends CI_Model{
 	
 	public function save(){}
 	public function delete(){}
-	public function get(){}
 }
