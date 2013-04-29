@@ -12,7 +12,7 @@ class MY_Model extends CI_Model{
 		parent::__construct();	
 	}
 	
-	//
+
 	public function get($id = NULL, $single = FALSE){
 		if($id != NULL){
 			$filter = $this->_primary_filter;
@@ -32,7 +32,7 @@ class MY_Model extends CI_Model{
 		return $this->db->get($this->_table_name)->$method();
 	}
 	
-	//
+
 	public function getby($where, $single = FALSE){
 		$this->db->where($where);
 		return $this->get(NULL, $single);

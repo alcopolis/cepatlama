@@ -6,5 +6,9 @@ class Users_m extends MY_Model{
 	protected $_primary_filter = 'intval';
 	protected $_order_by = 'id';
 	protected $_rules = array();
-	protected $_timestamps = FALSE;	
+	protected $_timestamps = FALSE;
+	
+	function __construct(){
+		parent::__construct();	
+	}
 }
