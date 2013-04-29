@@ -29,7 +29,7 @@ class MY_Model extends CI_Model{
 			$this->db->order_by($this->_order_by);
 		}
 		
-		return $this->db->get($this->_table_name)->$method;
+		return $this->db->get($this->_table_name)->$method();
 	}
 	
 	//
@@ -40,5 +40,4 @@ class MY_Model extends CI_Model{
 	
 	public function save(){}
 	public function delete(){}
-	public function get(){}
 }
