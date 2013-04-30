@@ -7,8 +7,10 @@ class Users extends Backend_Controller{
 	}
 	
 	public function index(){
-		$users = $this->users_m->get();
-		var_dump($users);
+		/*$users = $this->users_m->get();
+		var_dump($users);*/
+		
+		echo "USERS DASHBOARD";
 	}
 	
 	public function save($data, $id){
