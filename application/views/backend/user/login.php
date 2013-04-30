@@ -5,7 +5,6 @@
 <div class="modal-body">
 	<div id="validation-errors" style="background:#F00; color:#FFF;">
 		<?php echo validation_errors(); ?>
-        <?php echo '<pre>' . print_r($this->session->userdata, TRUE) . '</pre>'; ?>
     </div>
     
 	<?php echo form_open(); ?>

@@ -1,2 +1,2 @@
 <?php
-$config['site_name'] = 'My Site';
+$config['site_name'] = 'Innovate';

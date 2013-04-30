@@ -34,7 +34,7 @@ class MY_Model extends CI_Model{
 	}
 	
 
-	public function getby($where, $single = FALSE){
+	public function get_by($where, $single = FALSE){
 		$this->db->where($where);
 		return $this->get(NULL, $single);
 	}

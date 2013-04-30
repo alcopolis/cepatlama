@@ -22,21 +22,26 @@ class Users_m extends MY_Model{
 		parent::__construct();	
 	}
 	
-	public function login(){
+	public function login(){		
 		$user = $this->get_by(array(
 			'email' => $this->input->post('email'),
 			'password' => $this->hash($this->input->post('password'))
 		), TRUE);
 		
 		if(count($user)){
-			$data = array(
+			$usrdata = array(
 				'name' => $user->name,
 				'email' => $user->email,
 				'id' => $user->id,
 				'loggedin' => TRUE
 			);
-			$this->session->set_userdata($data);
+			$this->session->set_userdata($usrdata);
+			return TRUE;
+		}else{
+			return FALSE;	
 		}
+		
+		//return $user;
 	}
 	
 	public function logout(){

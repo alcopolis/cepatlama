@@ -3,7 +3,6 @@
 class Users extends Backend_Controller{
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('users_m');
 		
 		$this->data['page_title'] = 'Manage Users';
 	}
@@ -14,16 +13,20 @@ class Users extends Backend_Controller{
 	}
 	
 	public function login(){
-		$dashboard = 'backend/dashboard';
-		$this->users_m->loggedin() == FALSE || redirect($dashboard);
+		//$dashboard = 'backend/dashboard';
+		//$this->users_m->loggedin() == FALSE || redirect($dashboard);
 		
 		$rules = $this->users_m->rules; //Get the rules setting
 		$this->form_validation->set_rules($rules);
 		
+		//print_r($this->users_m->rules);
+		//print_r($this->form_validation);
+		
 		if($this->form_validation->run() == TRUE){
 			//We can login and redirect
 			if ($this->users_m->login() == TRUE) {
-    			redirect($dashboard);
+				echo 'exist';
+				//redirect($dashboard);
     		}else{
 				echo 'No user found';	
 			}
