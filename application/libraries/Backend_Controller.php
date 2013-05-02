@@ -15,6 +15,14 @@ class Backend_Controller extends MY_Controller{
 		
 		//General Settings
 		$this->data['meta_title'] = 'Innovate';	
+		
+		//Login Check
+		$exception_uris = array('backend/users/login', 'backend/users/logout');
+		
+		if (in_array(uri_string(), $exception_uris) == FALSE){
+			if($this->users_m->loggedin() == FALSE){
+				redirect('backend/users/login');
+			}
+		}
 	}
-	
 }

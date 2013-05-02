@@ -20,7 +20,7 @@
     <div id="content" class="container">
     	<div class="row">
             <div class="span9">
-                <h1><?php echo $page_title?></h1>
+                <?php $this->load->view($subview, $this->data); ?>
             </div>
             <div class="span3">
                 <section id="user">

@@ -8,7 +8,8 @@ class Dashboard extends Backend_Controller{
 	}
 	
 	public function index(){
-		$this->load->view('backend/_layout_main', $this->data);	
+		$this->data['subview'] = 'backend/dashboard/index';
+		$this->load->view('backend/_layout_main', $this->data);
 	}
 	
 	public function modal(){

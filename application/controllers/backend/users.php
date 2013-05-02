@@ -7,28 +7,30 @@ class Users extends Backend_Controller{
 		$this->data['page_title'] = 'Manage Users';
 	}
 	
-	public function index($user_name = NULL){
+	public function index(){
+		$this->data['users'] = $this->users_m->get();
+		
+		$this->data['subview'] = 'backend/user/index';
 		$this->load->view('backend/_layout_main', $this->data);	
-		//echo hash('sha512', 'tes123iE7215CPg345LZbiPGjBBVyJiXMB8e1F');
+		//echo hash('sha512', 'passwordiE7215CPg345LZbiPGjBBVyJiXMB8e1F');
 	}
 	
 	public function login(){
-		//$dashboard = 'backend/dashboard';
-		//$this->users_m->loggedin() == FALSE || redirect($dashboard);
+		$dashboard = 'backend/dashboard';
+		$this->users_m->loggedin() == FALSE || redirect($dashboard);
 		
 		$rules = $this->users_m->rules; //Get the rules setting
 		$this->form_validation->set_rules($rules);
-		
-		//print_r($this->users_m->rules);
-		//print_r($this->form_validation);
-		
+				
 		if($this->form_validation->run() == TRUE){
 			//We can login and redirect
 			if ($this->users_m->login() == TRUE) {
-				echo 'exist';
-				//redirect($dashboard);
+				//echo 'exist';	
+				redirect($dashboard);			
     		}else{
-				echo 'No user found';	
+				//echo 'No user found';
+				$this->session->set_flashdata('error', 'Email/password combination does not exist');
+				redirect('backend/users/login', 'refresh');	
 			}
 		}
 		
@@ -39,6 +41,10 @@ class Users extends Backend_Controller{
 	public function logout(){
 		$this->users_m->logout();
 		redirect('backend/users/login');
+	}
+	
+	public function edit($id){
+		echo 'edit';
 	}
 	
 	public function save($data, $id){
