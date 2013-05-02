@@ -19,15 +19,13 @@
     
     <div id="content" class="container">
     	<div class="row">
-            <div class="span9">
+            <div class="span10">
                 <?php $this->load->view($subview, $this->data); ?>
             </div>
-            <div class="span3">
+            <div class="span2">
                 <section id="user">
-                    <ul>
-                        <li><?php echo anchor('backend/users/' . 'admin', 'User'); ?></li>
-                        <li><?php echo anchor('backend/users/logout', 'Logout'); ?></li>
-                    </ul>
+                	<?php echo anchor('backend/users/profile/' . $this->session->userdata('id'), '<i class="icon-user"></i> ' . $this->session->userdata('name')); ?><br/>
+                	<?php echo anchor('backend/users/logout', '<i class="icon-off"></i> Logout'); ?>
                 </section>
             </div>
 		</div>

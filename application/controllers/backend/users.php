@@ -12,7 +12,6 @@ class Users extends Backend_Controller{
 		
 		$this->data['subview'] = 'backend/user/index';
 		$this->load->view('backend/_layout_main', $this->data);	
-		//echo hash('sha512', 'passwordiE7215CPg345LZbiPGjBBVyJiXMB8e1F');
 	}
 	
 	public function login(){

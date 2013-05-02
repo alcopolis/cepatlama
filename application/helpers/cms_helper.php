@@ -5,5 +5,5 @@ function btn_edit($uri){
 }
 
 function btn_delete($uri){
-	return anchor($uri, '<i class="icon-remove"></i>', array('onclick' => 'You are about to delete a record. This cannot be undone. Are you sure?'));
+	return anchor($uri, '<i class="icon-remove"></i>', array('onclick' => "return confirm('You are about to delete a record. This cannot be undone. Are you sure?')"));
 }
